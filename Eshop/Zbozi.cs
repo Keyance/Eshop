@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Eshop
 {
-    public class Zbozi
+     abstract public class Zbozi
     {
         public double Cena;
         public string Nazev;
