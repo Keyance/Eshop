@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace Eshop
 {
-    internal class Akvarel
+    public class Akvarel : Barvy
     {
+        public Typ TypAkvarelu;
+        public enum Typ
+        {
+            Tuba,
+            Panvicka,
+            Tekuty
+        }
     }
 }

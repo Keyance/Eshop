@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace Eshop
 {
-    internal class Barvy
+    public class Barvy : Zbozi
     {
+        public bool JeVSade;
+        public int PocetKusuVBaleni;
+        public Barvy()
+        {
+
+        }
     }
 }
