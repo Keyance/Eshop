@@ -10,9 +10,6 @@ namespace Eshop
     {
         public bool JeVSade;
         public int PocetKusuVBaleni;
-        public Barvy()
-        {
-
-        }
+        public int MnoztviVTube;
     }
 }

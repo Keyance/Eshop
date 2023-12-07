@@ -2,6 +2,7 @@
 
 var zbozi = new Dictionary<long, Zbozi>();
 
+//zadávání položek do slovníku
 Bloky cansonAkvarelA4 = new Bloky()
 {
     Cena = 204,
@@ -31,8 +32,8 @@ Akvarel SchminckeSet = new Akvarel()
 };
 zbozi.Add(SchminckeSet.EAN, SchminckeSet );
 
+//while smyčka obsahující celý program
 bool jeKonec = false;
-
 while (!jeKonec)
 {
     Console.WriteLine("0 - konec programu");
