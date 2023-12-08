@@ -38,9 +38,9 @@ while (!jeKonec)
 {
     Console.WriteLine("0 - konec programu");
     Console.WriteLine("1 - vypsat seznam položek");
-    Console.WriteLine("2 - konec programu");
-    Console.WriteLine("3 - konec programu");
-    Console.WriteLine("4 - konec programu");
+    Console.WriteLine("2 - přidat položku do seznamu");
+    Console.WriteLine("3 - naskladnit existující položku");
+    Console.WriteLine("4 - prodat položku");
     int volba = Convert.ToInt32(Console.ReadLine());
 
     switch (volba)
@@ -71,8 +71,54 @@ while (!jeKonec)
             }
             break;
         case 2:
+
             break;
         case 3:
+            {
+                bool mameCislo = false;
+                long cislo;
+                Zbozi hledane;
+                while (!mameCislo)
+                {
+                    Console.WriteLine("Prosím zadejte EAN položky, kterou chcete naskladnit.");
+                    string text = Console.ReadLine();
+                    if (long.TryParse(text, out cislo))
+                    {
+                        Console.WriteLine($"Vložil jste: {cislo}");
+                        
+                        if (zbozi.TryGetValue(cislo, out hledane))
+                        {
+                            Console.WriteLine($"Hodnota zadaného čísla '{cislo}' odpovídá položce: {hledane.Nazev}");
+                            mameCislo = true;
+                        }
+                         else
+                         {
+                            Console.WriteLine($"Číslo '{cislo}' nebylo nalezeno v seznamu zboží, zadejte prosím jiné.");
+                         }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Nesprávný input, prosím napište číslo EAN položky.");
+                    }
+                }
+                int kusy;
+                bool mamePocetKusu = false;
+                while (!mamePocetKusu)
+                {
+                    Console.WriteLine("Napište počet kusů, které chcete naskladnit.");
+                    if (int.TryParse(Console.ReadLine(), out kusy))
+                    {
+                        Console.WriteLine("Vložil jste číslo " + kusy + ". Tolik položek bude naskladněno.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Naplatná hodnota.");
+                    }
+                }
+                //hledane.Naskladni(kusy); toto zatím nefunguje
+            }
+            break;
+        case 4:
             break;
         default:
             Console.WriteLine("Nebylo zadáno správné číslo, zadejte číslo od 0 do 4");
