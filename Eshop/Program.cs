@@ -77,7 +77,7 @@ while (!jeKonec)
             {
                 bool mameCislo = false;
                 long cislo;
-                Zbozi hledane;
+                Zbozi hledane = null;
                 while (!mameCislo)
                 {
                     Console.WriteLine("Prosím zadejte EAN položky, kterou chcete naskladnit.");
@@ -101,21 +101,22 @@ while (!jeKonec)
                         Console.WriteLine("Nesprávný input, prosím napište číslo EAN položky.");
                     }
                 }
-                int kusy;
+                int kusy = 0;
                 bool mamePocetKusu = false;
                 while (!mamePocetKusu)
                 {
                     Console.WriteLine("Napište počet kusů, které chcete naskladnit.");
                     if (int.TryParse(Console.ReadLine(), out kusy))
                     {
-                        Console.WriteLine("Vložil jste číslo " + kusy + ". Tolik položek bude naskladněno.");
+                        Console.WriteLine("Vložil jste číslo " + kusy + ". Tolik položek bude naskladněno. Celkový počet kusů je: " + hledane.PocetNaSklade);
+                        mamePocetKusu= true;
                     }
                     else
                     {
                         Console.WriteLine("Naplatná hodnota.");
                     }
                 }
-                //hledane.Naskladni(kusy); toto zatím nefunguje
+                hledane.Naskladni(kusy);
             }
             break;
         case 4:
